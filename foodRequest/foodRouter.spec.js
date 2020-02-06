@@ -3,7 +3,7 @@ const server = require("../server")
 const db = require("../database/dbConfig")
 
 beforeAll(async () => {
-    await db.seed.run()
+    await db.seed.truncate()
 })
 
 test("welcome route", async () => {

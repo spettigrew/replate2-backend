@@ -55,7 +55,7 @@ router.post("/register", async (req, res, next) => {
         const volunteerUser = await VolunteerModel.insert(req.body)
         const token = signToken(volunteerUser)
 
-        return res.status(200).json({
+        return res.status(201).json({
             token,
             message: `Welcome ${volunteerUser.username}!`
         })

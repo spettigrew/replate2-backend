@@ -3,7 +3,7 @@ const server = require("../server")
 const db = require("../database/dbConfig")
 
 beforeAll(async () => {
-    await db.seed.run()
+    await db.seed.truncate()
 })
 
 test("welcome route", async () => {
@@ -17,11 +17,11 @@ test("welcome route", async () => {
 test("create volunteer user route", async () => {
     const res = await supertest(server)
         .post("/api/volunteers/register")
-        .send({ username: "joseph", password: "abc123" })
+        .send({ username: "sam", password: "abc123" })
 
     expect(res.status).toBe(200)
     expect(res.type).toBe("application/json")
-    expect(res.body.username).toBe("joseph")
+    expect(res.body.username).toBe("sam")
 })
 
 test("check volunteer login status", async () => {
