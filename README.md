@@ -98,7 +98,7 @@ Success-Response:
 
 <p>Gets new Business User and Users</p>
 
-  GET /api/businesses/8  -user
+    GET /api/businesses/8  -user
 
   ### Success Response
 
@@ -114,7 +114,7 @@ Success-Response:
   "email": "chipotle@tennessee.com"
 }
 
-GET /api/businesses -users
+    GET /api/businesses -users
 
 ### Success Response
 
@@ -215,14 +215,19 @@ Success-Response:
   "email": "dd@texas.com"
 }
 
+## Delete
 
-  # Auth
+<p>Deletes a Business User</p>
 
-  ## Registers a New User
+    DEL /api/businesses/1
+
+  # Volunteer
+
+  ## Registers a New Volunteer User
 
 <p>Registers a New Volunteer User</p>
 
-    POST //api/volunteers/register
+      POST /api/volunteers/register
 
 
 ### Parameters
@@ -230,8 +235,7 @@ Success-Response:
 | Name    | Type      | Description                          |
 |---------|-----------|--------------------------------------|
 | username            | String            |  <p>The New Business Users username *Required</p>                            |
-| password            | String            |  <p>The New Business Users password *Required</p> 
-                           |
+| password            | String            |  <p>The New Business Users password *Required</p>                         |
 | name            | String            |  <p>The New Business Users name</p>                            |
 | phone            | String            |  <p>The Users Business phone </p>                            |
 ### Success Response
@@ -279,7 +283,7 @@ Invalid--credentials-please-try-again
 
 <p>Gets new Volunteer User and Users</p>
 
-  GET /api/volunteers/2  -user
+    GET /api/volunteers/2  -user
 
   ### Success Response
 
@@ -293,7 +297,7 @@ Invalid--credentials-please-try-again
   "phone": 8775551234
 }
 
-GET /api/volunteers  -users
+    GET /api/volunteers  -users
 
   ### Success Response
 
@@ -341,4 +345,27 @@ GET /api/volunteers  -users
     "phone": 8775551234
   }
 ]
+
+## Update
+<p>Updates a Volunteer User</p>
+    PUT /api/volunteers/1
+
+## Success Response
+
+  Success-Response:
+
+  {
+  "id": 1,
+  "username": "sarap",
+  "password": "abc123",
+  "name": "Joseph",
+  "phone": 8775551234
+}
+
+
+## Delete
+
+<p>Deletes a Volunteer User</p>
+
+    DEL /api/volunteers/1
 
