@@ -3,7 +3,7 @@ const server = require("../server")
 const db = require("../database/dbConfig")
 
 beforeAll(async () => {
-    await db.seed.run()
+    await db.seed.truncate()
 })
 
 test("welcome route", async () => {
@@ -17,20 +17,20 @@ test("welcome route", async () => {
 test("create business user route", async () => {
     const res = await supertest(server)
         .post("/api/businesses/register")
-        .send({ username: "joseph", password: "abc123" })
+        .send({ username: "sam", password: "$2a$10$zY9/yBf0MYWGGtiEZrFQ8ef1KYLFPAmguEk3tX2NWP1mBhdekcj8" })
 
     expect(res.status).toBe(200)
     expect(res.type).toBe("application/json")
-    expect(res.body.username).toBe("joseph")
+    expect(res.body.username).toBe("sam")
 })
 
 test("check business login status", async () => {
     const res = await supertest(server)
         .post("/api/auth/login")
-        .send({ username: "joseph", password: "abc123" })
+        .send({ username: "nick", password: "$2a$10$zY9/yBf0MYWGGtiEZrFQ8ef1KYLFPAmguEk3tX2NWP1mBhdekcj8" })
     //console.log(res)
     expect(res.status).toBe(200)
     expect(res.type).toBe("application/json")
-    expect(res.body).toBe(username, "joseph")
+    expect(res.body).toBe(username, "nick")
 
 })
