@@ -29,7 +29,7 @@ async function insert(user) {
     const [ id ] = await db("business")
     .insert(user)
     .returning("id")
-    //return findById(id)
+    return findById(id)
 }
 
 // async function update(id, changes) {
