@@ -269,10 +269,6 @@ Invalid--credentials-please-try-again
 ```JSON
 [
   {
-    "name": "Chris D.",
-    "phone": 8775551234
-  },
-  {
     "name": "Sara",
     "phone": 8775551234
   },
