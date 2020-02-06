@@ -58,7 +58,7 @@ router.post("/register", async (req, res, next) => {
 
         return res.status(201).json({
             token,
-            message: `Welcome ${businessUser.username}!`
+            message: `Welcome ${businessUser}!`
         })
 
     } catch (err) {
