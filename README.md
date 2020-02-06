@@ -1,6 +1,6 @@
 # Back-end - Replate2
 Back-end repo for replate2
-deployed Link is:
+deployed Link is: https://replate2.herokuapp.com/
 
 - [Business](#business)
     - [Logs a Business User In](#logs-a-user-in)
@@ -23,6 +23,13 @@ deployed Link is:
     - [Cancel the assigned food request the Volunteer is signed up for](#cancel-the-assigned-food-request-the-Volunteer-is-signed-up-for)
     - [Mark assigned pickup as complete](#mark-assigned-pickup-as-complete)
 
+- [Food Request](#food_request)
+  - [Create a new Food Request](#create-a-new-food-request)
+  - [Update a Food Request](#update-a-food-request)
+  - [Get Food Request for Business user](#get-food-request-for-business-user)
+  - [Get Food Request for Business users](#get-food-request-for-business-users)
+  - [Delete Food Request](#delete-food-request)
+
 
 # Business
 
@@ -43,15 +50,16 @@ deployed Link is:
 ### Success Response
 
 Success-Response:
-
+```JSON
 {
   "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWJqZWN0IjozLCJ1c2VybmFtZSI6InNhcmExIiwicm9sZSI6ImRvbmF0b3IiLCJpYXQiOjE1ODA4NzU4NjksImV4cCI6MTU4MTQ4MDY2OX0.TznBvkmodNzAI_ZXAmFHCSwe3YwWyvEc4iCN4LXLRH0",
   "message": "Welcome sara1!"
 }
+```
 
 ### Error Response
 
-Invalid--credentials-please-try-again
+Invalid-credentials-please-try-again
 
 
 { message: "Invalid credentials, please try again."}
@@ -78,8 +86,7 @@ Invalid--credentials-please-try-again
 ### Success Response
 
 Success-Response:
-
-  
+```JSON
 [
   {
   "id": 8,
@@ -91,6 +98,7 @@ Success-Response:
   "email": "panera@indiana.com"
 }
 ]
+```
 
 # Business
 
@@ -98,12 +106,12 @@ Success-Response:
 
 <p>Gets new Business User and Users</p>
 
-    GET /api/businesses/8  -user
+    GET /api/businesses/8 -user
 
   ### Success Response
 
   Success-Response:
-
+```JSON
   {
   "id": 5,
   "username": "erin",
@@ -113,13 +121,14 @@ Success-Response:
   "phone": 615555123,
   "email": "chipotle@tennessee.com"
 }
+```
 
     GET /api/businesses -users
 
 ### Success Response
 
 Success-Response:
-
+```JSON
 [
   {
     "name": "Dunkin' Donuts",
@@ -139,56 +148,8 @@ Success-Response:
     "phone": 3105551234,
     "email": "og@california.com"
   },
-  {
-    "name": "Subway",
-    "address": "8000 E. Quincy Ave., Englewood, CO",
-    "phone": 7205551234,
-    "email": "subway@colorado.com"
-  },
-  {
-    "name": "Chipotle",
-    "address": "400 21st Ave. Nashville, TN",
-    "phone": 615555123,
-    "email": "chipotle@tennessee.com"
-  },
-  {
-    "name": "Pizza Hut",
-    "address": "2516 W. North Ave., Chicago, IL",
-    "phone": 7735551234,
-    "email": "ph@illinois.com"
-  },
-  {
-    "name": "Jimmy John's",
-    "address": "2750 W. Truman, Blvd., Joplin, MO",
-    "phone": 4175551234,
-    "email": "jj@missouri"
-  },
-  {
-    "name": "Panera",
-    "address": "1941 S. Reed Rd., Kokomo, IN",
-    "phone": 7655551234,
-    "email": "panera@indiana.com"
-  },
-  {
-    "name": "Einstein Bros. Bagel",
-    "address": "5249 Hazel Ave. Fair Oaks, CA",
-    "phone": 9165551234,
-    "email": "ebb@california.com"
-  },
-  {
-    "name": "MGM Grand Casino",
-    "address": "3799 S. Las Vegas, NV",
-    "phone": 7025551234,
-    "email": "mgmc@nevada.com"
-  },
-  {
-    "name": null,
-    "address": null,
-    "phone": null,
-    "email": null
-  }
 ]
-
+```
 # Business
 
 ## Update Business Users
@@ -204,7 +165,7 @@ Success-Response:
 ### Success Response
 
 Success-Response:
-
+```JSON
 {
   "id": 1,
   "username": "sara2",
@@ -214,7 +175,7 @@ Success-Response:
   "phone": 4325551234,
   "email": "dd@texas.com"
 }
-
+```
 ## Delete
 
 <p>Deletes a Business User</p>
@@ -241,11 +202,12 @@ Success-Response:
 ### Success Response
 
 Success-Response:
-
+```JSON
 {
   "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWJqZWN0IjoxMSwidXNlcm5hbWUiOiJuaWNrIiwicm9sZSI6InZvbHVudGVlciIsImlhdCI6MTU4MDk0NzAzOSwiZXhwIjoxNTgxNTUxODM5fQ.bgSpnkjVN2tudXNGILyRgosq5ycECqAeZO9aypg9D0o",
   "message": "Welcome nick!"
 }
+```
 
 ## Logs an Volunteer In
 
@@ -264,11 +226,12 @@ Success-Response:
 ### Success Response
 
 Success-Response:
-
+```JSON
 {
   "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWJqZWN0IjoxMSwidXNlcm5hbWUiOiJuaWNrIiwicm9sZSI6InZvbHVudGVlciIsImlhdCI6MTU4MDk0NzA2OSwiZXhwIjoxNTgxNTUxODY5fQ.xRGz7pUgLKtrtcgXh5LgSxh6S8BEYxNrAs_uajg3hPI",
   "message": "Welcome nick!"
 }
+````
 
 ### Error Response
 
@@ -288,7 +251,7 @@ Invalid--credentials-please-try-again
   ### Success Response
 
   Success-Response:
-
+```JSON
   {
   "id": 2,
   "username": "chrisd",
@@ -296,40 +259,21 @@ Invalid--credentials-please-try-again
   "name": "Chris D.",
   "phone": 8775551234
 }
-
+```
     GET /api/volunteers  -users
 
   ### Success Response
 
   Success-Response:
 
+```JSON
 [
-  {
-    "name": "Joseph",
-    "phone": 8775551234
-  },
   {
     "name": "Chris D.",
     "phone": 8775551234
   },
   {
-    "name": "Chris B.",
-    "phone": 8775551234
-  },
-  {
-    "name": "Chris S.",
-    "phone": 8775551234
-  },
-  {
     "name": "Sara",
-    "phone": 8775551234
-  },
-  {
-    "name": "Mercy",
-    "phone": 8775551234
-  },
-  {
-    "name": "Erin",
     "phone": 8775551234
   },
   {
@@ -345,6 +289,7 @@ Invalid--credentials-please-try-again
     "phone": 8775551234
   }
 ]
+```
 
 ## Update
 <p>Updates a Volunteer User</p>
@@ -353,7 +298,7 @@ Invalid--credentials-please-try-again
 ## Success Response
 
   Success-Response:
-
+```JSON
   {
   "id": 1,
   "username": "sarap",
@@ -361,7 +306,7 @@ Invalid--credentials-please-try-again
   "name": "Joseph",
   "phone": 8775551234
 }
-
+```
 
 ## Delete
 
@@ -369,3 +314,78 @@ Invalid--credentials-please-try-again
 
     DEL /api/volunteers/1
 
+
+# Food Request
+
+  ## Registers a New Food Request User
+
+<p>Registers a New Food Request User</p>
+
+      POST /api/foodRequest
+
+<p>Gets new Food Request User and Users</p>
+
+    GET /api/foodRequests/2 - user
+
+  ### Success Response
+
+  Success-Response:
+```JSON
+{
+  "id": 3,
+  "type": "Fruit/Vegetable",
+  "servings": 12,
+  "pickup_time": 1583741614,
+  "description": "Describe food to be picked up.",
+  "completed": 0,
+  "business_id": 5,
+  "volunteer_id": 5
+}
+```
+
+    GET /api/foodRequests - users
+
+  ### Success Response
+
+  Success-Response:
+```JSON
+ [
+  {
+    "type": "Soup",
+    "servings": 22,
+    "pickup_time": 1581066814,
+    "description": "Describe food to be picked up."
+  },
+  {
+    "type": "Fruit/Vegetable",
+    "servings": 12,
+    "pickup_time": 1583741614,
+    "description": "Describe food to be picked up."
+  },
+  {
+    "type": "Side Dish",
+    "servings": 30,
+    "pickup_time": 1581239614,
+    "description": "Describe food to be picked up."
+  },
+]
+```
+  PUT /api/foodRequest/3
+
+  ### Success Response
+
+  Success-Response:
+```JSON
+{
+  "id": 3,
+  "type": "Fruit/Vegetable",
+  "servings": 40,
+  "pickup_time": 1583741614,
+  "description": "Describe food to be picked up.",
+  "completed": 0,
+  "business_id": 5,
+  "volunteer_id": 5
+}
+```
+
+  DEL /api/foodRequest/3
