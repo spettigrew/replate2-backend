@@ -30,7 +30,14 @@ deployed Link is: https://replate2.herokuapp.com/
   - [Get Food Request for Business users](#get-food-request-for-business-users)
   - [Delete Food Request](#delete-food-request)
 
+# **Setup**
+```
+# Install dependencies
+npm install
 
+# Starts express server using nodemon
+npm run server
+```
 # Business
 
 ## Logs a Business User In
@@ -50,6 +57,11 @@ deployed Link is: https://replate2.herokuapp.com/
 ### Success Response
 
 Success-Response:
+##### 201 (Created)
+
+> If you successfully register a user the endpoint will return an HTTP response with a status code `201` and a body as below.
+
+_example:_
 ```JSON
 {
   "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWJqZWN0IjozLCJ1c2VybmFtZSI6InNhcmExIiwicm9sZSI6ImRvbmF0b3IiLCJpYXQiOjE1ODA4NzU4NjksImV4cCI6MTU4MTQ4MDY2OX0.TznBvkmodNzAI_ZXAmFHCSwe3YwWyvEc4iCN4LXLRH0",
@@ -58,13 +70,26 @@ Success-Response:
 ```
 
 ### Error Response
+##### 401 (Bad Request)
 
-Invalid-credentials-please-try-again
+> If you are missing a email or password for registration, the endpoint will return an HTTP response with a status code `401` and a body as below.
 
+_example:_
+```
+{
+  message: "Invalid credentials, please try again."
+}
+```
+##### 500 (Internal Server Error)
 
-{ message: "Invalid credentials, please try again."}
+> If there is a server or database error, the endpoint will return an HTTP response with a status code `500` and a body as below.
 
-
+_example:_
+```
+{
+  message: "Incorrect, check again."
+}
+```
 ## Registers a New Business User
 
 <p>Registers a New Business User</p>
@@ -86,6 +111,12 @@ Invalid-credentials-please-try-again
 ### Success Response
 
 Success-Response:
+##### 200 (OK)
+
+> If you successfully login, the endpoint will return an HTTP response with a status code `200` and a body as below.
+
+_example:_
+
 ```JSON
 [
   {
@@ -99,6 +130,27 @@ Success-Response:
 }
 ]
 ```
+### Error Response
+##### 401 (Unauthorized)
+
+> If you are missing a email or password for login, the endpoint will return an HTTP response with a status code `401` and a body as below.
+
+_example:_
+```
+{
+  message: "Invalid credentials, please try again."
+}
+```
+##### 500 (Bad Request)
+
+> If there is a server or database error, the endpoint will return an HTTP response with a status code `500` and a body as below.
+
+_example:_
+```
+{
+  message: "Incorrect, check again."
+}
+```
 
 # Business
 
@@ -109,6 +161,11 @@ Success-Response:
     GET /api/businesses/8 -user
 
   ### Success Response
+  ##### 200 (OK)
+
+> If the user profile is found in the database, the endpoint will return an HTTP response with a status code 200 and a body as below.
+
+_example:_
 
   Success-Response:
 ```JSON
@@ -122,7 +179,6 @@ Success-Response:
   "email": "chipotle@tennessee.com"
 }
 ```
-
     GET /api/businesses -users
 
 ### Success Response
@@ -150,6 +206,17 @@ Success-Response:
   },
 ]
 ```
+### Error Response
+#### 404 (Not Found)
+
+> If the provided `userId` doesn't have a profile, the endpoint will return an HTTP response with a status code `404` and a body as below.
+
+_example:_
+```
+{
+  message: "Could not find profile with this Id."
+}
+```
 # Business
 
 ## Update Business Users
@@ -176,6 +243,17 @@ Success-Response:
   "email": "dd@texas.com"
 }
 ```
+### Error Response
+#### 404 (Not Found)
+
+> If the provided `userId` doesn't have a profile, the endpoint will return an HTTP response with a status code `404` and a body as below.
+
+_example:_
+```
+{
+  "message": "Sorry, but that profile doesn't exist"
+}
+```
 ## Delete
 
 <p>Deletes a Business User</p>
@@ -200,8 +278,13 @@ Success-Response:
 | name            | String            |  <p>The New Business Users name</p>                            |
 | phone            | String            |  <p>The Users Business phone </p>                            |
 ### Success Response
+##### 201 (Created)
+
+> If you successfully register a user the endpoint will return an HTTP response with a status code `201` and a body as below.
 
 Success-Response:
+
+_example:_
 ```JSON
 {
   "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWJqZWN0IjoxMSwidXNlcm5hbWUiOiJuaWNrIiwicm9sZSI6InZvbHVudGVlciIsImlhdCI6MTU4MDk0NzAzOSwiZXhwIjoxNTgxNTUxODM5fQ.bgSpnkjVN2tudXNGILyRgosq5ycECqAeZO9aypg9D0o",
@@ -224,6 +307,11 @@ Success-Response:
 | password            | String            |  <p>Password of the User</p>                            |
 
 ### Success Response
+##### 200 (OK)
+
+> If you successfully login, the endpoint will return an HTTP response with a status code `200` and a body as below.
+
+_example:_
 
 Success-Response:
 ```JSON
@@ -233,12 +321,31 @@ Success-Response:
 }
 ````
 
-### Error Response
+  ### Error Response
 
-Invalid--credentials-please-try-again
+##### 401 (Unauthorized)
 
+> If you fail to login, the endpoint will return an HTTP response with a status code `401` which indicates the email and or password entered is not valid.
 
-{ message: "Invalid credentials, please try again."}
+_example:_
+
+```
+{
+  message: "Invalid credentials, please try again."
+}
+```
+
+##### 500 (Bad Request)
+
+> If there is a server or database error, the endpoint will return an HTTP response with a status code `500` and a body as below.
+
+_example:_
+
+```
+{
+  message: "Invalid credentials, please try again."
+}
+```
 
 # Volunteer
 
@@ -286,6 +393,17 @@ Invalid--credentials-please-try-again
   }
 ]
 ```
+  ### Error Response
+#### 404 (Not Found)
+
+> If the provided `userId` doesn't have a profile, the endpoint will return an HTTP response with a status code `404` and a body as below.
+
+_example:_
+```
+{
+  "message": "Sorry, but that profile doesn't exist"
+}
+```
 
 ## Update
 <p>Updates a Volunteer User</p>
@@ -301,6 +419,17 @@ Invalid--credentials-please-try-again
   "password": "abc123",
   "name": "Joseph",
   "phone": 8775551234
+}
+```
+### Error Response
+#### 404 (Not Found)
+
+> If the provided `userId` doesn't have a profile, the endpoint will return an HTTP response with a status code `404` and a body as below.
+
+_example:_
+```
+{
+  message: "Could not find volunteers with given id."
 }
 ```
 
@@ -338,6 +467,18 @@ Invalid--credentials-please-try-again
   "volunteer_id": 5
 }
 ```
+### Error Response
+#### 404 (Not Found)
+
+> If the provided `userId` doesn't have a profile, the endpoint will return an HTTP response with a status code `404` and a body as below.
+
+_example:_
+```
+{
+  message: "Could not find food request with given id."
+}
+```
+
 
     GET /api/foodRequests - users
 
@@ -381,6 +522,17 @@ Invalid--credentials-please-try-again
   "completed": 0,
   "business_id": 5,
   "volunteer_id": 5
+}
+```
+### Error Response
+#### 404 (Not Found)
+
+> If the provided `userId` doesn't have a profile, the endpoint will return an HTTP response with a status code `404` and a body as below.
+
+_example:_
+```
+{
+  message: message: "Could not find food request with this Id."
 }
 ```
 
