@@ -40,12 +40,12 @@ function insert(user) {
 //         //return findById(id)
 // }
 
-// function update(id, changes){
-//     return db("business")
-//         .where({ id })
-//         .update(changes)
-//         .returning("id")
-// }
+function update(id, changes){
+    return db("business")
+        .where({ id })
+        .update(changes)
+        .returning("id")
+}
 
 function remove(id) {
     return db("business")
