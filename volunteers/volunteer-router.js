@@ -42,7 +42,7 @@ router.put("/:id", authenticate, async (req, res, next) => {
              res.json(volunteers)
         } else {
             return res.status(404).json({
-                message: "Could not find volunteers with given ID",
+                message: "Could not find volunteers with given id.",
             })
         }
     } catch (err) {
