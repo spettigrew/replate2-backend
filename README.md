@@ -44,19 +44,9 @@ deployed Link is:
 
 Success-Response:
 
-[
-  {
-    "username": "nick",
-    "name": null,
-    "address": null,
-    "phone": null,
-    "email": null
-  }
-]
-
 {
-  "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWJqZWN0IjoxLCJ1c2VybmFtZSI6Im5pY2siLCJyb2xlIjoiZG9uYXRvciIsImlhdCI6MTU4MDg2ODI4MSwiZXhwIjoxNTgxNDczMDgxfQ.Rxg7V9AsxWXXxGtpSQONvrTRwYrNm1H7-d7UosgC8bE",
-  "message": "Welcome nick!"
+  "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWJqZWN0IjozLCJ1c2VybmFtZSI6InNhcmExIiwicm9sZSI6ImRvbmF0b3IiLCJpYXQiOjE1ODA4NzU4NjksImV4cCI6MTU4MTQ4MDY2OX0.TznBvkmodNzAI_ZXAmFHCSwe3YwWyvEc4iCN4LXLRH0",
+  "message": "Welcome sara1!"
 }
 
 ### Error Response
@@ -65,6 +55,7 @@ Invalid--credentials-please-try-again
 
 
 { message: "Invalid credentials, please try again."}
+
 
 ## Registers a New Business User
 
@@ -88,13 +79,142 @@ Invalid--credentials-please-try-again
 
 Success-Response:
 
+  
+[
   {
-    "username": "nick",
+  "id": 8,
+  "username": "don",
+  "password": "$2a$10$zY9/yBf0MYWGGtiEZrFQ8ef1KYLFPAmguEk3tX2NWP1mBhdekcj8O",
+  "name": "Panera",
+  "address": "1941 S. Reed Rd., Kokomo, IN",
+  "phone": 7655551234,
+  "email": "panera@indiana.com"
+}
+]
+
+# Business
+
+## Get Business Users
+
+<p>Gets new Business User and Users</p>
+
+  GET /api/businesses/8  -user
+
+  ### Success Response
+
+  Success-Response:
+
+  {
+  "id": 5,
+  "username": "erin",
+  "password": "$2a$10$zY9/yBf0MYWGGtiEZrFQ8ef1KYLFPAmguEk3tX2NWP1mBhdekcj8O",
+  "name": "Chipotle",
+  "address": "400 21st Ave. Nashville, TN",
+  "phone": 615555123,
+  "email": "chipotle@tennessee.com"
+}
+
+GET /api/businesses -users
+
+### Success Response
+
+Success-Response:
+
+[
+  {
+    "name": "Dunkin' Donuts",
+    "address": "5101 Bingle Rd. Houston, TX",
+    "phone": 4325551234,
+    "email": "dd@texas.com"
+  },
+  {
+    "name": "Panda Express",
+    "address": "1818 W. Northern Lights, Anchorage, AK",
+    "phone": 9075551234,
+    "email": "pe@alaska.com"
+  },
+  {
+    "name": "Olive Garden",
+    "address": "6000 Sepulveda Blvd, Culver City, CA",
+    "phone": 3105551234,
+    "email": "og@california.com"
+  },
+  {
+    "name": "Subway",
+    "address": "8000 E. Quincy Ave., Englewood, CO",
+    "phone": 7205551234,
+    "email": "subway@colorado.com"
+  },
+  {
+    "name": "Chipotle",
+    "address": "400 21st Ave. Nashville, TN",
+    "phone": 615555123,
+    "email": "chipotle@tennessee.com"
+  },
+  {
+    "name": "Pizza Hut",
+    "address": "2516 W. North Ave., Chicago, IL",
+    "phone": 7735551234,
+    "email": "ph@illinois.com"
+  },
+  {
+    "name": "Jimmy John's",
+    "address": "2750 W. Truman, Blvd., Joplin, MO",
+    "phone": 4175551234,
+    "email": "jj@missouri"
+  },
+  {
+    "name": "Panera",
+    "address": "1941 S. Reed Rd., Kokomo, IN",
+    "phone": 7655551234,
+    "email": "panera@indiana.com"
+  },
+  {
+    "name": "Einstein Bros. Bagel",
+    "address": "5249 Hazel Ave. Fair Oaks, CA",
+    "phone": 9165551234,
+    "email": "ebb@california.com"
+  },
+  {
+    "name": "MGM Grand Casino",
+    "address": "3799 S. Las Vegas, NV",
+    "phone": 7025551234,
+    "email": "mgmc@nevada.com"
+  },
+  {
     "name": null,
     "address": null,
     "phone": null,
     "email": null
   }
+]
+
+# Business
+
+## Update Business Users
+
+### Parameters
+
+| Name    | Type      | Description                          |
+|---------|-----------|--------------------------------------|
+| username            | String            |  <p>Username of the User</p>                            |
+| password            | String            |  <p>Password of the User</p>                            |
+
+
+### Success Response
+
+Success-Response:
+
+{
+  "id": 1,
+  "username": "sara2",
+  "password": "abc123",
+  "name": "Dunkin' Donuts",
+  "address": "5101 Bingle Rd. Houston, TX",
+  "phone": 4325551234,
+  "email": "dd@texas.com"
+}
+
 
   # Auth
 
