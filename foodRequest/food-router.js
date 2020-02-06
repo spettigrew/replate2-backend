@@ -53,7 +53,7 @@ router.put("/:id", authenticate, async (req, res, next) => {
             res.json(food_request)
         } else {
             return res.status(404).json({
-                message: "Could not find food request with given ID",
+                message: "Could not find food request with given id.",
             })
         }
     } catch (err) {
