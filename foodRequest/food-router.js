@@ -2,7 +2,7 @@ const FoodModel = require("../foodRequest/food-model")
 
 const router = require("express").Router()
 
-router.get("/", async (req, res, next) => {
+router.get("/", authenticate, async (req, res, next) => {
     try{
         const foodRequest = await FoodModel.list(req.body)
 
@@ -13,7 +13,7 @@ router.get("/", async (req, res, next) => {
     }
 })
 
-router.get("/:id", async (req, res, next) => {
+router.get("/:id", authenticate, async (req, res, next) => {
     try {
         const { id } = req.params
         const food_request = await FoodModel.findById(id)
@@ -30,7 +30,7 @@ router.get("/:id", async (req, res, next) => {
     }
 })
 
-router.post("/", async (req, res, next) => {
+router.post("/", authenticate, async (req, res, next) => {
     try {
         const id = await FoodModel.insert(req.body) //returns an array
 
@@ -43,7 +43,7 @@ router.post("/", async (req, res, next) => {
     }
 })
 
-router.put("/:id", async (req, res, next) => {
+router.put("/:id", authenticate, async (req, res, next) => {
     try {
         const { id } = req.params //returns an object
         const food_request = await FoodModel.update(id, req.body)
@@ -60,7 +60,7 @@ router.put("/:id", async (req, res, next) => {
     }
 })
 
-router.delete("/:id", async (req, res, next) => {
+router.delete("/:id", authenticate, async (req, res, next) => {
     try {
         const { id } = await db("food_request")
             .where({ id: req.params.id })
