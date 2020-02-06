@@ -1,4 +1,5 @@
 const FoodModel = require("../foodRequest/food-model")
+const authenticate = require("../middleware/authenticate")
 
 const router = require("express").Router()
 
