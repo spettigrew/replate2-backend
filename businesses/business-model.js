@@ -17,21 +17,35 @@ function findById(id) {
     .first()
 }
 
-async function insert(user) {
+function insert(user) {
     user.password = bcrypt.hashSync(user.password, 12)
-    const [ id ] = await db("business")
-    .insert(user)
-    .returning("id")
-    //return findById(id)
+    return db('business')
+        .insert(user)
+        .returning('id')
 }
 
-async function update(id, changes) {
-    await db("business")
-        .where({ id })
-        .update(changes)
-        .returning("id")
-        //return findById(id)
-}
+// async function insert(user) {
+//     user.password = bcrypt.hashSync(user.password, 12)
+//     const [ id ] = await db("business")
+//     .insert(user)
+//     .returning("id")
+//     //return findById(id)
+// }
+
+// async function update(id, changes) {
+//     await db("business")
+//         .where({ id })
+//         .update(changes)
+//         .returning("id")
+//         //return findById(id)
+// }
+
+// function update(id, changes){
+//     return db("business")
+//         .where({ id })
+//         .update(changes)
+//         .returning("id")
+// }
 
 function remove(id) {
     return db("business")
