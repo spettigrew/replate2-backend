@@ -36,7 +36,7 @@ router.get("/:id", authenticate, async (req, res, next) => {
 router.put("/:id", authenticate, async (req, res, next) => {
     try {
         const { id } = req.params //returns an object
-        const volunteers = await VolunteerModel.update(req.body, id)
+        const volunteers = await VolunteerModel.update(id, req.body)
 
         if (volunteers) {
              res.json(volunteers)

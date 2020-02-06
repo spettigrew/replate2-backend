@@ -37,7 +37,7 @@ router.get("/:id", authenticate, async (req, res, next) => {
 router.put("/:id", authenticate, async (req, res, next) => {
     try {
         const { id } = req.params //returns an object
-        const business = await BusinessModel.update(req.body, id)
+        const business = await BusinessModel.update(id, req.body)
 
         if (business) {
             res.json(business)
