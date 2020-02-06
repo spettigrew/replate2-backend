@@ -59,7 +59,7 @@ Invalid--credentials-please-try-again
 
 ## Registers a New Business User
 
-<p>Registers a New Volunteer</p>
+<p>Registers a New Business User</p>
 
     POST /api/businesses/register
 
@@ -218,6 +218,31 @@ Success-Response:
 
   # Auth
 
+  ## Registers a New User
+
+<p>Registers a New Volunteer User</p>
+
+    POST //api/volunteers/register
+
+
+### Parameters
+
+| Name    | Type      | Description                          |
+|---------|-----------|--------------------------------------|
+| username            | String            |  <p>The New Business Users username *Required</p>                            |
+| password            | String            |  <p>The New Business Users password *Required</p> 
+                           |
+| name            | String            |  <p>The New Business Users name</p>                            |
+| phone            | String            |  <p>The Users Business phone </p>                            |
+### Success Response
+
+Success-Response:
+
+{
+  "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWJqZWN0IjoxMSwidXNlcm5hbWUiOiJuaWNrIiwicm9sZSI6InZvbHVudGVlciIsImlhdCI6MTU4MDk0NzAzOSwiZXhwIjoxNTgxNTUxODM5fQ.bgSpnkjVN2tudXNGILyRgosq5ycECqAeZO9aypg9D0o",
+  "message": "Welcome nick!"
+}
+
 ## Logs an Volunteer In
 
 <p>Logs an Volunteer In</p>
@@ -237,7 +262,7 @@ Success-Response:
 Success-Response:
 
 {
-  "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWJqZWN0IjoxLCJ1c2VybmFtZSI6Im5pY2siLCJyb2xlIjoidm9sdW50ZWVyIiwiaWF0IjoxNTgwODY4OTYzLCJleHAiOjE1ODE0NzM3NjN9.y6u3ZD1wCc_6MhpCDXVNRElpQYEpHeLHA-hvtriJoRQ",
+  "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWJqZWN0IjoxMSwidXNlcm5hbWUiOiJuaWNrIiwicm9sZSI6InZvbHVudGVlciIsImlhdCI6MTU4MDk0NzA2OSwiZXhwIjoxNTgxNTUxODY5fQ.xRGz7pUgLKtrtcgXh5LgSxh6S8BEYxNrAs_uajg3hPI",
   "message": "Welcome nick!"
 }
 
@@ -248,26 +273,72 @@ Invalid--credentials-please-try-again
 
 { message: "Invalid credentials, please try again."}
 
-## Registers a New User
+# Volunteer
 
-<p>Registers a New Volunteer User</p>
+## Get Volunteer Users
 
-    POST //api/volunteers/register
+<p>Gets new Volunteer User and Users</p>
 
+  GET /api/volunteers/2  -user
 
-### Parameters
+  ### Success Response
 
-| Name    | Type      | Description                          |
-|---------|-----------|--------------------------------------|
-| username            | String            |  <p>The New Business Users username *Required</p>                            |
-| password            | String            |  <p>The New Business Users password *Required</p>                            |
-| name            | String            |  <p>The New Business Users name</p>                            |
-| phone            | String            |  <p>The Users Business phone </p>                            |
-### Success Response
+  Success-Response:
 
-Success-Response:
+  {
+  "id": 2,
+  "username": "chrisd",
+  "password": "$2a$10$zY9/yBf0MYWGGtiEZrFQ8ef1KYLFPAmguEk3tX2NWP1mBhdekcj8O",
+  "name": "Chris D.",
+  "phone": 8775551234
+}
 
-{
-    "name": null,
-    "phone": null
+GET /api/volunteers  -users
+
+  ### Success Response
+
+  Success-Response:
+
+[
+  {
+    "name": "Joseph",
+    "phone": 8775551234
+  },
+  {
+    "name": "Chris D.",
+    "phone": 8775551234
+  },
+  {
+    "name": "Chris B.",
+    "phone": 8775551234
+  },
+  {
+    "name": "Chris S.",
+    "phone": 8775551234
+  },
+  {
+    "name": "Sara",
+    "phone": 8775551234
+  },
+  {
+    "name": "Mercy",
+    "phone": 8775551234
+  },
+  {
+    "name": "Erin",
+    "phone": 8775551234
+  },
+  {
+    "name": "Austen",
+    "phone": 8775551234
+  },
+  {
+    "name": "Frodo",
+    "phone": 8775551234
+  },
+  {
+    "name": "Chewie",
+    "phone": 8775551234
   }
+]
+
