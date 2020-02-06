@@ -6,6 +6,21 @@ beforeAll(async () => {
     await db.seed.truncate()
 })
 
+// let token = '';
+// beforeAll(done => {
+//     supertest(server)
+//         .post('/api/auth/login')
+//         .send({ username: 'test1', password: 'test' })
+//         .end((err, res) => {
+//             if (err) {
+//                 console.log(err)
+//             } else {
+//                 token = res.body.token;
+//                 done();
+//             }
+//         })
+// })
+
 test("welcome route", async () => {
     const res = await supertest(server).get("/")
 
