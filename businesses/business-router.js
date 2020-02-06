@@ -56,7 +56,7 @@ router.post("/register", async (req, res, next) => {
         const businessUser = await BusinessModel.insert(req.body)
         const token = signToken(businessUser)
 
-        return res.status(200).json({
+        return res.status(201).json({
             token,
             message: `Welcome ${businessUser.username}!`
         })
