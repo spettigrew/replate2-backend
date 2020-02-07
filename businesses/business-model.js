@@ -21,7 +21,8 @@ function insert(user) {
     user.password = bcrypt.hashSync(user.password, 12)
     return db('business')
         .insert(user)
-        .returning('id')
+        .returning([ 'id', "username" ])
+        .first()
 }
 
 // async function insert(user) {

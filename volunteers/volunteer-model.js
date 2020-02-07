@@ -30,7 +30,7 @@ function insert(user) {
     user.password = bcrypt.hashSync(user.password, 12)
     return db("volunteer")
     .insert(user)
-    .returning("id")
+    .returning([ "id", "username" ])
 }
 
 // async function update(id, changes) {
