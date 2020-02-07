@@ -54,7 +54,7 @@ router.put("/:id", authenticate, async (req, res, next) => {
 router.post("/register", async (req, res, next) => {
     try {
         const userExists = await BusinessModel.findBy({ username: req.body.username })
-        if (userExists) {
+        if (userExists && userExists.length > 0) {
             return res.status(422).json({ message: "Username already exists." })
         }
 
