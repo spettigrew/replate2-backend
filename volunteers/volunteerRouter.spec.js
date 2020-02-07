@@ -6,21 +6,6 @@ beforeAll(async () => {
     await db.seed.run()
 })
 
-// let token = '';
-// beforeAll(done => {
-//     supertest(server)
-//         .post('/api/auth/login')
-//         .send({ username: 'test1', password: 'test' })
-//         .end((err, res) => {
-//             if (err) {
-//                 console.log(err)
-//             } else {
-//                 token = res.body.token;
-//                 done();
-//             }
-//         })
-// })
-
 describe("volunteer router tests", () => {
     test("welcome route", async () => {
         const res = await supertest(server).get("/")
@@ -31,7 +16,7 @@ describe("volunteer router tests", () => {
 
     test("create volunteer user route", async () => {
         const res = await supertest(server)
-            .post("/api/volunteers/register")
+            .post("/api/volunteers")
             .send({ 
                 username: "sam", 
                 password: "$2a$10$zY9/yBf0MYWGGtiEZrFQ8ef1KYLFPAmguEk3tX2NWP1mBhdekcj8" })
@@ -47,18 +32,19 @@ describe("volunteer router tests", () => {
 
         expect(res.status).toBe(200)
         expect(res.type).toBe("application/json")
-        expect(res.body).toBe(name, "Sara")
+        expect(res.body).toEqual(name, "Sara")
     })
 
     test("check id and name of volunteer", async () => {
         const res = await supertest(server)
-            .get("api/volunteers/login/:id")
+            .get("api/volunteers/:id")
             .send({
                 id: 5,
                 name: "Sara",
             })
         expect(res.status).toBe(200)
         expect(res.type).toBe("application/json")
+        expect(res.body.length).toBeGreaterThan(0)
         expect(res.body).toBe(id, "5", name, "Sara")
     })
 })

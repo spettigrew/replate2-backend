@@ -5,8 +5,8 @@ const db = require("../database/dbConfig")
 beforeAll(async () => {
     await db.seed.run()
 })
-describe("business router tests", () => {
 
+describe("business router tests", () => {
     test("welcome route", async () => {
         const res = await supertest(server).get("/")
         expect(res.status).toBe(201)
@@ -14,15 +14,15 @@ describe("business router tests", () => {
         expect(res.body.message).toBe("Welcome to Replate!")
     })
 
-    test("create business user route", async () => {
+    test("register business user route", async () => {
         const res = await supertest(server)
             .post("/api/businesses/register")
             .send({ 
-                username: "jane", 
+                username: "nick", 
                 password: "$2a$10$zY9/yBf0MYWGGtiEZrFQ8ef1KYLFPAmguEk3tX2NWP1mBhdekcj8" })
         expect(res.status).toBe(201)
         expect(res.type).toBe("application/json")
-        expect(res.body.username).toBe("jane")
+        expect(res.body.username).toEqual("nick")
     })
 
     test("check business login status", async () => {
@@ -34,13 +34,13 @@ describe("business router tests", () => {
         //console.log(res)
         expect(res.status).toBe(200)
         expect(res.type).toBe("application/json")
-        expect(res.body).toBe(username, "nick")
+        expect(res.body).toBe(username, "nick", password, "$2a$10$zY9/yBf0MYWGGtiEZrFQ8ef1KYLFPAmguEk3tX2NWP1mBhdekcj8")
 
     })
 
     test("check id and name of business user", async () => {         
         const res = await supertest(server)
-        .get("api/businesses/login/:id")
+        .get("api/businesses/:id")
             .send({
                 id: 2,
                 name: "Panda Express",
