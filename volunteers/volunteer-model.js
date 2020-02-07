@@ -21,6 +21,7 @@ async function insert(user) {
     user.password = bcrypt.hashSync(user.password, 12)
     const [ id ] = await db("volunteer")
         .insert(user)
+        .returning("id")
         return findById(id)
 }
 
@@ -37,6 +38,7 @@ async function update(id, changes) {
     await db("volunteer")
         .where({ id })
         .update(changes)
+        .returning("id")
         return findById(id)
 }
 
