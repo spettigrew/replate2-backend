@@ -53,6 +53,10 @@ router.put("/:id", authenticate, async (req, res, next) => {
 
 router.post("/register", async (req, res, next) => {
     try {
+        const userExists = await businessModel.findBy({ username: req.body.username })
+        if (userExists) {
+            return res.status(422).json({ message: "Username already exists." })
+        }
         const businessUser = await BusinessModel.insert(req.body)
         const token = signToken(businessUser)
 
