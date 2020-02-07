@@ -52,10 +52,10 @@ router.put("/:id", authenticate, async (req, res, next) => {
 
 router.post("/register", async (req, res, next) => {
     try {
-        const userExists = await VolunteerModel.findBy({ username: req.body.username })
-        if (userExists) {
-            return res.status(422).json({ message: "Username already exists." })
-        }
+        // const userExists = await VolunteerModel.findBy({ username: req.body.username })
+        // if (userExists && userExists.length > 0) {
+        //     return res.status(422).json({ message: "Username already exists." })
+        // }
 
         const volunteerUser = await VolunteerModel.insert(req.body)
         const token = signToken(volunteerUser)
