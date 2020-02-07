@@ -37,7 +37,7 @@ async function update(id, changes) {
         .where({ id })
         .update(changes)
         .returning("id")
-        //return findById(id)
+        return findById(id)
 }
 
 // function update(id, changes){
