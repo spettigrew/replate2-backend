@@ -16,35 +16,44 @@ describe("volunteer router tests", () => {
 
     test("create volunteer user route", async () => {
         const res = await supertest(server)
-            .post("/api/volunteers")
+            .post("/api/volunteers/register")
             .send({ 
-                username: "sam", 
-                password: "$2a$10$zY9/yBf0MYWGGtiEZrFQ8ef1KYLFPAmguEk3tX2NWP1mBhdekcj8" })
+                username: "skyelar5", 
+                password: "abc123" })
+        const token = res.body.token
         expect(res.status).toBe(201)
         expect(res.type).toBe("application/json")
-        expect(res.body.username).toBe("sam")
+        expect(res.body).toEqual({ token, message: "Welcome skyelar5!" })
     })
 
     test("check volunteer login status", async () => {
         const res = await supertest(server)
             .post("/api/volunteers/login")
-            .send({ name: "Sara" })
-
+            .send({ 
+                name: "skyelar5",
+                password: "abc123",
+            })
+        const token = res.body.token
         expect(res.status).toBe(200)
         expect(res.type).toBe("application/json")
-        expect(res.body).toEqual(name, "Sara")
+        expect(res.body).toEqual({ message: "Welcome skyelar5!", token })
     })
 
     test("check id and name of volunteer", async () => {
-        const res = await supertest(server)
-            .get("api/volunteers/:id")
+        const login = await supertest(server)
+            .post("/api/volunteers/login")
             .send({
-                id: 5,
-                name: "Sara",
+                username: "skyelar5",
+                password: "abc123"
+            })
+        const res = await supertest(server)
+            .get("api/volunteers/5")
+            .send({
+                 name: "Sara",
             })
         expect(res.status).toBe(200)
         expect(res.type).toBe("application/json")
         expect(res.body.length).toBeGreaterThan(0)
-        expect(res.body).toBe(id, "5", name, "Sara")
+        expect(res.body).toBe({ name: "Sara" })
     })
 })

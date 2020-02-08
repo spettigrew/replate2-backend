@@ -17,10 +17,14 @@ describe("food request router tests", () => {
     test("create food request route", async () => {
         const res = await supertest(server)
             .post("/api/foodRequest")
-            .send({ type: "Sandwich" })
-        expect(res.status).toBe(200)
+            .send({ name: "Panda Express",
+                address: "1818 W. Northern Lights, Anchorage, AK", 
+                phone: "9075551234",
+                email: "pe@alaska.com",
+            })
+        expect(res.status).toBe(201)
         expect(res.type).toBe("application/json")
-        expect(res.body).toBe(type, "Sandwich")
+        expect(res.body).toEqual({ name: "Panda Express", address: "1818 W. Northern Lights, Anchorage, AK", phone: 9075551234, email: "pe@alaska.com" })
     })
 
     test("check id and name of food request", async () => {
@@ -32,6 +36,6 @@ describe("food request router tests", () => {
             })
         expect(res.status).toBe(200)
         expect(res.type).toBe("application/json")
-        expect(res.body).toBe(id, "2", name, "Salad")
+        expect(res.body).toBe({ id: "2", name: "Salad" })
     })
 })
