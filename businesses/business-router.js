@@ -77,7 +77,7 @@ router.post("/login", async (req, res, next) => {
         
         const user = await BusinessModel.findBy({ username })
         .first()
-
+        
         if (user && bcrypt.compare(password, user.password)) {
             const token = signToken(user)
 
