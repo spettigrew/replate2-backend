@@ -9,6 +9,7 @@ function list() {
 function findBy(filter) {
     return db("business")
     .where(filter)
+    .select("id", "name")
 }
 
 function findById(id) {
@@ -25,7 +26,7 @@ function findById(id) {
 // }
 
 async function insert(user) {
-    user.password = bcrypt.hashSync(user.password, 12)
+    user.password = bcrypt.hash(user.password, 12)
     const [ id ] = await db("business")
     .insert(user)
     .returning("id")
