@@ -32,7 +32,8 @@ describe("business router tests", () => {
             .post("/api/businesses/login")
             .send({ 
                 username: "skyelar20", 
-                password: "abc123" })
+                password: "abc123"
+                 })
         //console.log(res)
         const token = res.body.token
         expect(res.status).toBe(200)

@@ -29,11 +29,14 @@ describe("volunteer router tests", () => {
     test("check volunteer login status", async () => {
         const res = await supertest(server)
             .post("/api/volunteers/login")
-            .send({ name: "skyelar5" })
+            .send({ 
+                name: "skyelar5",
+                password: "abc123"
+            })
         const token = res.body.token
         expect(res.status).toBe(200)
         expect(res.type).toBe("application/json")
-        expect(res.body).toEqual({ message: "Welcome skyelar5!", token })
+        expect(res.body).toEqual({ token, message: "Welcome skyelar5!" })
     })
 
     test("check id and name of volunteer", async () => {

@@ -24,7 +24,7 @@ describe("food request router tests", () => {
             })
         expect(res.status).toBe(201)
         expect(res.type).toBe("application/json")
-        expect(res.body).toBe({ name: "Panda Express", address: "1818 W. Northern Lights, Anchorage, AK", phone: 9075551234, email: "pe@alaska.com" })
+        expect(res.body).toEqual({ name: "Panda Express", address: "1818 W. Northern Lights, Anchorage, AK", phone: 9075551234, email: "pe@alaska.com" })
     })
 
     test("check id and name of food request", async () => {
