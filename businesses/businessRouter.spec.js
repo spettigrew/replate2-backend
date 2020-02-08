@@ -20,7 +20,6 @@ describe("business router tests", () => {
             .send({ 
                 username: "skyelar20", 
                 password: "abc123" })
-                //console.log(res.body)
         const token = res.body.token
         expect(res.status).toBe(201)
         expect(res.type).toBe("application/json")
@@ -59,6 +58,6 @@ describe("business router tests", () => {
             )
             expect(res.status).toBe(200)
             expect(res.type).toBe(application/json)
-            expect(res.body).toBe({ name: "Panda Express" })
+        expect(res.body).toBe({ id: 2, name: "Panda Express" })
     })
 })
