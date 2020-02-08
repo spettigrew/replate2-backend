@@ -14,7 +14,7 @@ exports.seed = async function (knex) {
               password: "$2a$10$zY9/yBf0MYWGGtiEZrFQ8ef1KYLFPAmguEk3tX2NWP1mBhdekcj8O",
               name: "Panda Express",
               address: "1818 W. Northern Lights, Anchorage, AK",
-              phone: 9075551234,
+              phone: 9075555678,
               email: "pe@alaska.com"
             },
             {
@@ -22,7 +22,7 @@ exports.seed = async function (knex) {
               password: "$2a$10$zY9/yBf0MYWGGtiEZrFQ8ef1KYLFPAmguEk3tX2NWP1mBhdekcj8O",
               name: "Olive Garden",
               address: "6000 Sepulveda Blvd, Culver City, CA",
-              phone: 3105551234,
+              phone: 3105559101,
               email: "og@california.com"
             },
             {
@@ -30,7 +30,7 @@ exports.seed = async function (knex) {
               password: "$2a$10$zY9/yBf0MYWGGtiEZrFQ8ef1KYLFPAmguEk3tX2NWP1mBhdekcj8O",
               name: "Subway",
               address: "8000 E. Quincy Ave., Englewood, CO",
-              phone: 7205551234,
+              phone: 7205551121,
               email: "subway@colorado.com"
             },
             {
@@ -38,7 +38,7 @@ exports.seed = async function (knex) {
               password: "$2a$10$zY9/yBf0MYWGGtiEZrFQ8ef1KYLFPAmguEk3tX2NWP1mBhdekcj8O",
               name: "Chipotle",
               address: "400 21st Ave. Nashville, TN",
-              phone: 615555123,
+              phone: 6155531415,
               email: "chipotle@tennessee.com"
             },
             {
@@ -46,7 +46,7 @@ exports.seed = async function (knex) {
               password: "$2a$10$zY9/yBf0MYWGGtiEZrFQ8ef1KYLFPAmguEk3tX2NWP1mBhdekcj8O",
               name: "Pizza Hut",
               address: "2516 W. North Ave., Chicago, IL",
-              phone: 7735551234,
+              phone: 7735551517,
               email: "ph@illinois.com"
             },
             {
@@ -54,7 +54,7 @@ exports.seed = async function (knex) {
               password: "$2a$10$zY9/yBf0MYWGGtiEZrFQ8ef1KYLFPAmguEk3tX2NWP1mBhdekcj8O",
               name: "Jimmy John's",
               address: "2750 W. Truman, Blvd., Joplin, MO",
-              phone: 4175551234,
+              phone: 4175551819,
               email: "jj@missouri"
             },
             {
@@ -62,7 +62,7 @@ exports.seed = async function (knex) {
               password: "$2a$10$zY9/yBf0MYWGGtiEZrFQ8ef1KYLFPAmguEk3tX2NWP1mBhdekcj8O",
               name: "Panera",
               address: "1941 S. Reed Rd., Kokomo, IN",
-              phone: 7655551234,
+              phone: 7655552021,
               email: "panera@indiana.com"
             },
             {
@@ -70,7 +70,7 @@ exports.seed = async function (knex) {
               password: "$2a$10$zY9/yBf0MYWGGtiEZrFQ8ef1KYLFPAmguEk3tX2NWP1mBhdekcj8O",
               name: "Einstein Bros. Bagel",
               address: "5249 Hazel Ave. Fair Oaks, CA",
-              phone: 9165551234,
+              phone: 9165552223,
               email: "ebb@california.com"
             },
             {
@@ -78,7 +78,7 @@ exports.seed = async function (knex) {
               password: "$2a$10$zY9/yBf0MYWGGtiEZrFQ8ef1KYLFPAmguEk3tX2NWP1mBhdekcj8O",
               name: "MGM Grand Casino",
               address: "3799 S. Las Vegas, NV",
-              phone: 7025551234,
+              phone: 7025552425,
               email: "mgmc@nevada.com"
             },
 
