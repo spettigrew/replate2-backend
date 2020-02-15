@@ -18,7 +18,7 @@ function findById(id) {
 // food_request does not have a user. What would I call in as a parameter?
 async function insert(food_request) {
     const [ id ] = await db("food_request")
-        .insert("food_request")
+        .insert(food_request)
         .returning("id")
         return findById(id)
 }
