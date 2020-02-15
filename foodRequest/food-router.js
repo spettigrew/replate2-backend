@@ -40,6 +40,7 @@ router.post("/", authenticate, async (req, res, next) => {
         return res.status(201).json(food_request)
     }
     catch (err) {
+        console.log(err)
         next(err)
     }
 })
