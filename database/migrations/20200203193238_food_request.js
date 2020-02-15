@@ -4,7 +4,7 @@ exports.up = async function (knex) {
         table.increments("id")
         table.string("type", 280).notNullable
         table.float("servings", 280)
-        table.bigint("pickup_time")
+        table.string("pickup_time")
         table.string("description", 500)
         table.boolean('completed').defaultTo(false);
 
