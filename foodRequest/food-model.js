@@ -20,7 +20,7 @@ async function insert(food_request) {
     const [ id ] = await db("food_request")
         .insert(food_request)
         .returning("id")
-        return findById(id)
+        //return findById(id)
 }
 
     // function insert(food_request) {
