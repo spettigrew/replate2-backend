@@ -26,7 +26,8 @@ function findById(id) {
 // }
 
 async function insert(user) {
-    user.password = bcrypt.hash(user.password, 12)
+    user.password = bcrypt.hashSync(user.password, 12)
+    console.log(user)
     const [ id ] = await db("business")
     .insert(user)
     .returning("id")
