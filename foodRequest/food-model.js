@@ -19,7 +19,7 @@ function findById(id) {
 async function insert(food_request) {
     const [ id ] = await db("food_request")
         .insert(food_request)
-        .returning("id")
+        // .returning("id")
         console.log(id)
         return findById(id)
 }
